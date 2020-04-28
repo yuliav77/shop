@@ -6,17 +6,22 @@ Web Programming with Python - Julia books adviser
 
 File name  		    | Content
 --------------------|----------------------
-index.html          | Main page of project includes general information
-about_me.html       | Brief information about the blog author
-self_studying.html  | Brief information about self learning, advantages and disadvantages
-reading.html        | General advices how to improve reading skill
-speaking.html 		| General advices how to improve speaking skill
-listening.html		| General advices how to improve listening skill
-writing.html        | General advices how to improve writing skill
-styles.scss  		| CSS stylesheet using SASS
-styles.css     		| CSS stylesheet which is compiled from styles.scss
-css/fonts.css		| CSS stylesheet where fonts are determined
-css/font-awesome.css| CSS stylesheet to determine icon font
-js/mobmenu.js		| JS file for opening site navigation on mobile devices 
-fonts 				| Fonts folder
-img 				| Images folder
+application.py		|Main application file
+import.py			|Command file for "books.csv" import procedure
+books.csv			|File for import 
+models.py			|Database structure
+/templates
+	index.html      | Login page 
+	base.html       | Base template
+	error.html  	| Error page
+	search.html     | Search page, where user can enter search parameters and get the result table
+	register.html 	| Page for registration
+	success.html	| Successful registration page showing user's details
+	book.html       | Book page having book details and reviews
+/static/css
+	styles.scss  	| CSS stylesheet using SASS
+	styles.css     	| CSS stylesheet which is compiled from styles.scss
+	fonts.css		| CSS stylesheet where fonts are determined
+	font-awesome.css| CSS stylesheet to determine icon font
+/static/fonts 		| Fonts folder
+/static/img 		| Images folder
