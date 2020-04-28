@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title %}Book - Julia books adviser{% endblock %}
+{% block content %}
+				<aside class="col-md aside_container">
+					<div class="aside_inner">
+						<div class="logo_block">
+							<a href="/">
+								<h1>Books Adviser</h1>
+							</a>
+						</div>
+						<p> <b>{{ notes[1] }}</b>, you have been logged as <b>{{ notes[0] }}</b>!</p>
+						<form action="/logout" method="post">
+							<p><button type="submit" class="btn btn-primary">logout</button></p>
+						</form>
+						<p>You have choosen the folowing book:.</p>
+
+						<hr>
+						<div class="book_inner_block">
+							<p class="bookauthor_block"><span>Author:</span> <b>{{ book.author }}</b></p>
+							<p class="booktitle_block"><span>Title:</span> <b>"{{ book.title }}"</b></p>
+							<p><span>Publication year:</span> <b>{{ book.year }}</b></p>
+							<p><span>ISBN number:</span> <b>{{ book.isbn }}</b></p>
+							<hr>
+							<p><span>Number of ratings on Goodreads:</span> <b>{{ work_ratings_count }}</b></p>
+							<p><span>Average rating on Goodreads:</span> <b>{{ average_rating }}</b></p>
+							<hr>
+						</div>
+						<button onclick="history.back();">Go back</button>
+					</div>
+				</aside>
+				<div class="main col-md">
+					<div class="header_img"></div>
+					<div id="content_page">
+						<h2>Book reviews</h2>
+						<div class="content_inner">
+							{% for review in reviews %}
+							<div class="review_block">
+								<p class="review_author">{{ review.login }} ({{ review.name }})</p>
+								<blockquote>{{ review.text }}
+									<div class="review_mark">
+										My grade: 
+										{% if review.grade == 1 %}
+											<div class="stars stars_1"></div>
+										{% elif review.grade == 2 %}
+											<div class="stars stars_2"></div>
+										{% elif review.grade == 3 %}
+											<div class="stars stars_3"></div>
+										{% elif review.grade == 4 %}
+											<div class="stars stars_4"></div>
+										{% else %} 
+											<div class="stars stars_5"></div>
+										{% endif %}
+									</div>
+								</blockquote>
+								<hr>
+							</div>
+							{% else %}
+								<p>No reviews</p>
+							{% endfor %}							
+							
+							<h3>Add your review</h3>
+						
+							<form action="{{ url_for('book', book_id=book.id) }}/add_review" method="post">
+								<div class="form-group row">
+									<label for="inputComment" class="col-sm-2 col-form-label">Write your comment:</label>
+									<div class="col-sm-10"><textarea class="form-control" name="comment" id="inputComment" rows="3" placeholder="Place your review here" required></textarea></div>
+								</div>
+								 <div class="form-group row">
+									<label for="inputGrade" class="col-sm-2 col-form-label">Choose the grade:</label>
+									<div class="col-sm-10">
+										<select class="form-control" name="grade" id="inputGrade" required>
+										  <option>1</option>
+										  <option>2</option>
+										  <option>3</option>
+										  <option>4</option>
+										  <option>5</option>
+										</select>
+									</div>
+								  </div>
+								<div class="form-group row">
+									<div class="col-sm-10 align-self-end">
+									  <button type="submit" class="btn btn-primary">Add my review</button>
+									</div>
+								</div>
+							</form>
+
+						</div>
+					</div>	
+ {% endblock %}

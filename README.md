@@ -1,6 +1,6 @@
-# Project 0 by Julia Vozovikova
+# Project 1 by Julia Vozovikova
 
-Julia blog about English Self Study
+Web Programming with Python - Julia books adviser
 
 ## Description
 
@@ -20,4 +20,3 @@ css/font-awesome.css| CSS stylesheet to determine icon font
 js/mobmenu.js		| JS file for opening site navigation on mobile devices 
 fonts 				| Fonts folder
 img 				| Images folder
-
