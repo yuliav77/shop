@@ -29,12 +29,15 @@ def register():
 def success():
 	name = request.form.get("name") 
 	login = request.form.get("login") 
-	password = request.form.get("password") 
-	password2 = request.form.get("password2") 
-	db.execute("INSERT INTO users (name, login, password) VALUES (:name, :login, :password)",
-		{"name": name, "login": login, "password": password})	
-	db.commit()	
-	return render_template("success.html", name=name, login=login, password=password, password2=password2)
+	login2 = db.execute("SELECT * FROM users WHERE login = :login", {"login": login}).fetchone() 
+	if login2 is None:
+		password = request.form.get("password") 
+		password2 = request.form.get("password2") 
+		db.execute("INSERT INTO users (name, login, password) VALUES (:name, :login, :password)",
+			{"name": name, "login": login, "password": password})	
+		db.commit()	
+		return render_template("success.html", name=name, login=login, password=password, password2=password2)
+	return render_template("error.html", message="There is already user with the same LOGIN in the database")			
 		
 @app.route("/search", methods=["POST"])
 def search():
