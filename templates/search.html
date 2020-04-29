@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Search - Julia books adviser{% endblock %}
+{% block content %}
+				<aside class="col-md aside_container">
+					<div class="aside_inner">
+						<div class="logo_block">
+							<a href="/">
+								<h1>Books Adviser</h1>
+							</a>
+						</div>
+						<hr>
+						<p> Hi,  <b>{{ notes[1] }}</b>!  You have been logged as <b>{{ notes[0] }}</b>.</p>
+						<form action="/logout" method="post">
+							<p><button type="submit" class="btn btn-primary">logout</button></p>
+						</form>
+						<hr>
+						<h3>Search form</h3>
+						<form action="/search_results" method="post">
+						  <div class="form-group">
+							<label for="inputISBN">ISBN</label>
+							<input type="text" name="isbn" class="form-control" id="inputISBN" placeholder="ISBN">
+						  </div>
+						  <div class="form-group">
+							<label for="inputTitle">Title</label>
+							<input type="text" name="title" class="form-control" id="inputTitle" placeholder="Title">
+						  </div>
+						  <div class="form-group">
+							<label for="inputAuthor">Author</label>
+							<input type="text" name="author" class="form-control" id="inputAuthor" placeholder="Author">
+						  </div>
+						  <button type="submit" class="btn btn-primary">Search</button>
+						</form>
+						<hr>
+						
+					</div>
+				</aside>
+				<div class="main col-md">
+					<div class="header_img"></div>
+					<div id="content_page">
+						<h2>Search results</h2>
+						<div class="content_inner">
+									<table>
+										<tbody>
+											<tr><th>ISBN</th><th>Title</th><th>Author</th><th>Year</th></tr>
+											{% for book in books %}
+												<tr onclick="window.location.href='{{ url_for('book', book_id=book.id) }}'; return false"><td>{{ book.isbn }}</td><td>{{ book.title }}</td><td>{{ book.author }}</td><td>{{ book.year }}</td></tr>	
+											{% else %}												
+												<tr><td colspan="4"></td><i>{{ message }}</i></tr>
+											{% endfor %}																						
+										</tbody>
+									</table>
+						</div>
+					</div>	
+ {% endblock %}
