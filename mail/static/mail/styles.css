@@ -1,0 +1,44 @@
+textarea {
+    min-height: 200px;
+	margin-bottom:20px;
+}
+#emails-table  td, #emails-table  th{
+	padding: 3px 8px;
+}
+
+#emails-table  tr:not(:first-child){
+	cursor: pointer;
+	border: 1px solid #a2a2a2;	
+}
+
+#emails-table  tr:not(:first-child):hover{
+	background:blue !important;
+	color:#ffffff;
+}
+
+#email-view span{
+	padding:5px;
+	font-style:italic;
+	font-weight:normal;
+}
+#email-view div{
+	font-weight:bold;
+}
+
+#email-view div#subject{
+    margin: 5px 0;
+}
+
+#email-view div#body{
+	margin-top: 20px;
+	display: block;
+}
+#email-view div#body textarea{
+    width: 100%;
+    min-height: 300px;
+}
+#archive_button, #unarchive_button, #reply_button{
+	display:none;
+	margin-top:10px;
+	margin-right:10px;
+}
