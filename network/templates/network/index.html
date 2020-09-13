@@ -1,0 +1,17 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+    
+	<h1>All posts</h1>
+	<form id="add_post">
+		<h3>New Post</h3>
+		<textarea class="form-control" id="post-text" required></textarea>
+        <input type="submit" value="Submit" class="btn btn-primary"/>
+	</form>
+	
+	<div id="user_info"></div>
+	
+	<div id="posts_view"></div>
+	  
+
+{% endblock %}
