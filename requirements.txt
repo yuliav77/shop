@@ -1,0 +1,3 @@
+Django
+django.core.files.storage
+django.core.mail

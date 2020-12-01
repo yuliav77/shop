@@ -1,0 +1,137 @@
+{% extends "shop/layout.html" %}
+{% load static %}
+
+{% block body %}
+    
+	<div id="logo">
+		<div id="caption_block">
+			<h1>Marshmallow Delivery</h1>
+			<h3>to make you feel better!</h3>
+		</div>
+		<div id="phone_block">
+			<a href="tel:+380971233333"><i class="fa fa-phone" aria-hidden="true"></i>8(097) 123-33-33</a>
+		</div>
+	</div>
+			
+	<div id="products_list">
+			<ul>
+			{% for product in products %}
+				<li data-id="{{ product.id }}">
+					<div class="product_photo_div" style="background-image:url({{ product.photo.url }})"></div>
+					<div class="product_name_div">{{ product.name }}</div>
+					<div class="product_description_div">{{ product.description }}</div>
+					<div class="product_price_div"><span class="product_price_span">{{ product.price }}</span> for <span class="product_unit_span">{{ product.unit }}</span></div>
+					<div class="product_buttons_div">
+						<button class="product_minus">-</button>
+						<span class="product_count">1</span>
+						<button class="product_plus">+</button>
+						<button class="product_add_to_cart"><i class="fas fa-shopping-cart"></i> Add To Cart</button>
+					</div>
+				</li>
+			{% endfor %}
+			</ul>
+			<a class="btn btn-primary" href="#" id="load_more">Load more</a>
+			
+		<div id="why_block">	
+			<h2>Why Marshmallow Land?</h2>
+	
+			<div class="row">
+					<div class="col">
+						<div class="wrap-icon">
+							<img src="{% static 'shop/img/advantage1.png' %}" alt="">
+						</div>
+						<span>100% natural</span>
+						<p>We use only fresh and natural ingredients</p>
+					</div>
+					<div class="col">
+						<div class="wrap-icon">
+							<img src="{% static 'shop/img/advantage2.png' %}" alt="">
+						</div>
+						<span>Discounts and compliments</span>
+						<p>We provide bonuses for regular customers</p>
+					</div>
+					<div class="col">
+						<div class="wrap-icon">
+							<img src="{% static 'shop/img/advantage3.png' %}" alt="">
+						</div>
+						<span>Variety of tastes</span>
+						<p>We work hard to create new and delicious products</p>
+					</div>
+			</div>
+		</div>		
+		
+		<div id="hits_block">
+			<h2>Top Sales</h2>
+			<ul class="hits_slider">
+			{% for product in products %}
+				{% if product.top %}
+				<li data-id="{{ product.id }}">
+					<div class="product_photo_div" style="background-image:url({{ product.photo.url }})"></div>
+					<div class="product_name_div">{{ product.name }}</div>
+					<div class="product_description_div">{{ product.description }}</div>
+					<div class="product_price_div"><span class="product_price_span">{{ product.price }}</span> for <span class="product_unit_span">{{ product.unit }}</span></div>
+					<div class="product_buttons_div">
+						<button class="product_minus">-</button>
+						<span class="product_count">1</span>
+						<button class="product_plus">+</button>
+						<button class="product_add_to_cart"><i class="fas fa-shopping-cart"></i> Add To Cart</button>
+					</div>
+				</li>
+				{% endif %}
+			{% endfor %}
+			</ul>
+
+		</div>
+		
+		<div id="how_block">	
+			<h2>How it works?</h2>
+	
+			<div class="row">
+					<div class="col">
+						<div class="wrap-icon">
+							<img src="{% static 'shop/img/icon-1.png' %}" alt="">
+						</div>
+						<span>Create order</span>
+						<p>Call us or leave message</p>
+					</div>
+					<div class="col">
+						<img src="{% static 'shop/img/arrow1.png' %}" alt="">
+					</div>
+					<div class="col">
+						<div class="wrap-icon">
+							<img src="{% static 'shop/img/icon-2.png' %}" alt="">
+						</div>
+						<span>Confirm order</span>
+						<p>We call you back and discuss details</p>
+					</div>
+					<div class="col">
+						<img src="{% static 'shop/img/arrow2.png' %}" alt="">
+					</div>
+					<div class="col">
+						<div class="wrap-icon">
+							<img src="{% static 'shop/img/icon-4.png' %}" alt="">
+						</div>
+						<span>Delivery</span>
+						<p>We bring your order to your door</p>
+					</div>
+					<div class="col">
+						<img src="{% static 'shop/img/arrow1.png' %}" alt="">
+					</div>
+					<div class="col">
+						<div class="wrap-icon">
+							<img src="{% static 'shop/img/icon-5.png' %}" alt="">
+						</div>
+						<span>Payment</span>
+						<p>You pay the bill</p>
+					</div>
+				</div>
+		</div>		
+
+		
+	
+	</div>
+	
+
+ 
+
+{% endblock %}

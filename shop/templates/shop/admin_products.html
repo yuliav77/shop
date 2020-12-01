@@ -1,0 +1,48 @@
+{% extends "shop/layout.html" %}
+
+{% block body %}
+    
+
+	{% if user.is_staff %}
+	<div id="admin_div">
+		<div id="products_list">
+			<ul>
+			{% for product in products %}
+				<li data-id="{{ product.id }}">
+					<div class="product_name_div">{{ product.name }}</div>
+					<div class="product_description_div">{{ product.description }}</div>
+					<div class="product_price_div"><span class="product_price_span">{{ product.price }}</span> for <span class="product_unit_span">{{ product.unit }}</span></div>
+					<div class="product_photo_div"><img src="{{ product.photo.url }}" ></div>
+					<div class="product_buttons_div">
+						<a class="btn btn-primary" href="{% url 'edit_product' product_id=product.id %}">Edit</a>
+						<button class="delete_button btn btn-primary">Delete</button>					
+					</div>
+				</li>
+			{% endfor %}
+			</ul>
+		</div>
+
+		
+		<div>
+			<form id="add_product" method="post" enctype="multipart/form-data">{% csrf_token %}
+				
+				<h3>Add New Product</h3>
+				
+				{% if message %}
+					<div>{{ message }}</div>
+				{% endif %}
+
+				{{ form.as_p }}
+
+				<button type="submit" class="save btn btn-primary">Add product</button>
+			</form>
+		</div>	
+	</div>
+	
+
+	
+	{% else %}
+		Forbidden! You are not staff!
+    {% endif %}	  
+
+{% endblock %}
