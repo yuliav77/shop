@@ -1,0 +1,236 @@
+/*==========  Desktop First Method  ==========*/
+@media only screen and (max-width : 1240px) {
+	
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+	#products_list #hits_block ul li{
+		background: url(img/bg_product.png) center 0 no-repeat;
+	}
+}
+
+@media only screen and (max-width : 1100px) {
+	#how_block .row {
+		margin: 40px 10px;
+	}
+}
+
+
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+	#why_block{
+		margin:30px 0;
+	}
+	.product_photo_div{
+		width:auto;
+	}
+	#how_block span,
+	#why_block span{
+		line-height:1;
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+	.navbar #mob_menu_button{
+		display:block;
+		color: #b42e7b;
+		transition: transform 1s;
+		order:2;
+	}
+	.navbar #mob_menu_button:before {
+		font-weight: 900;
+		font-family: "Font Awesome 5 Free";
+		content: "\f0c9";
+	}
+	.navbar.opened #mob_menu_button:before {
+		content: "\f00d";
+	}
+	.navbar > div{
+		display:none;
+		position: absolute;
+		top: 50px;
+		left: 0;
+		background: #fae8e8;
+		width: 100%;
+		text-align: center;		
+	}
+	.navbar .mob_link{
+		display:block;
+	}
+	#how_block,
+	#hits_block,
+	#why_block{
+		padding-top:50px;
+	}
+	#cart_link{
+		margin: 0em 0em 0em auto;
+		order:1;
+	}
+	#logo{
+		padding:10px 20px;
+	}
+	#logo h1{
+		font-size:2em;
+	}
+	#logo h3{
+		font-size: 1em;
+	}
+	#logo #phone_block a {
+		font-size: 1.5em;
+	}
+	#products_list {
+		margin: 0 25px;
+	}
+	#products_list ul li{
+		display:none;
+		width: 31%;
+		height: auto;
+		background: url(img/bg_product.png) center 0 no-repeat;
+		background-size: cover;
+		padding: 25px 5px;		
+	}
+	#load_more{
+		display:block;
+		margin:0 auto;
+	}
+	.product_photo_div {
+		width: 85%;
+		height:150px;
+	}	
+	.product_plus, .product_minus {
+		width: 25px;
+	}
+	.product_buttons_div{
+		font-size: 0.9em;
+	}
+	.product_count {
+		padding: 0;
+	}
+	#how_block .row .col:nth-child(3),
+	#how_block .row .col:nth-child(7){
+		margin-top:80px;
+	}
+	#how_block .row .col:nth-child(even) img{
+		margin-top:80px;
+	}
+	#how_block .row .col:nth-child(4){
+		flex: 1 0 100%;
+		margin: 0 0 40px 0;
+	}
+	#how_block .row .col:nth-child(4) img{
+	    transform: scale(-1, 1) rotate(45deg);
+		margin-right: 80px;
+		margin-top: -20px;		
+	}
+	#orders_list{
+		border: 10px solid #fff;
+	}
+	#cart_div_inner{
+		margin-top: 20px;
+	}
+}
+
+@media only screen and (max-width : 650px) {
+	#products_list ul li{
+		width: 48%;
+	}
+	#orders_div #table_outer {
+		overflow-x: auto;
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width : 550px) {
+	#products_list ul li{
+		width: 47%;
+	}
+	#logo{
+	    justify-content: center;
+	}
+	#caption_block{
+		display:none;
+	}
+	#how_block .row {
+		margin: 40px 20px;
+	}
+	#cart_div_inner{
+		width: 85%;
+/*		display: flex;
+		flex-direction: column;
+		margin-top: 0;*/
+	}
+	#cart_div_inner:before,
+	#cart_div_inner:after{
+		background-size: contain;
+		display: block;
+		position: relative;
+	}
+	#cart_div_inner:before{
+		top: 0;
+		height: auto;
+		background-size: cover;
+	}
+	#cart_back{
+			background-size: contain;
+	}
+	#orders_div{
+		padding:10px;
+	}
+}
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+	#why_block .row{
+		flex-direction: column;
+	}
+}
+
+@media only screen and (max-width : 450px) {
+	.navbar{
+		padding:10px 8px;
+	}
+	.navbar-light .navbar-brand{
+		font-size:1em;
+	}
+	#cart_link{
+		font-size:0.8em;
+	}
+	#cart_list td{
+		font-size:0.9em;
+	}
+	#products_list ul li{
+		width: 90%;
+		padding: 35px 5px;
+	}
+	.product_photo_div {
+		height: 180px;
+	}
+	#how_block .row{
+		flex-direction: column;
+	}
+	#how_block .row .col:nth-child(even){
+		display:none;
+	}
+	#how_block .row .col,
+	#how_block .row .col:nth-child(3),
+	#how_block .row .col:nth-child(7) {
+		margin-top: 30px;
+	}
+	#products_list #hits_block ul li{
+		background-size:cover;
+	}
+}
+
+@media only screen and (max-width : 380px) {
+	#products_list #hits_block ul li{
+		background-size:contain;
+	}
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+}

@@ -1,0 +1,50 @@
+{% extends "shop/layout.html" %}
+
+{% block body %}
+    
+	<div id="orders_div">
+		<h1>Orders</h1>
+		<div>
+			<a href="{% url 'index' %}" class="back_shopping_button btn btn-primary"><i class="fas fa-arrow-left"></i> Back To Shopping</a>
+			<div id="table_outer">
+				<table id="orders_list">
+				{% if orders %}
+				<tr><th class="text-center">Order id</th><th>Products (name, amount)</th>
+				
+				{% if user.is_staff %}
+					<th>Customer (username, first name, phone)</th>
+				{% endif %}
+				
+				<th>Sum</th><th>Comment</th><th>Date/Time</th></tr>
+				{% for order in orders %}
+				<tr>
+					<td class="text-center">{{ order.id }}</td>
+					<td>
+					<ul>
+					{% for item in order.items %}
+						<li>
+							{{ item.0 }} - {{ item.1 }}
+						</li>	
+					{% endfor %}	
+					</ul>
+					</td>
+
+					{% if user.is_staff %}
+						<td>{{ order.customer.0 }}, {{ order.customer.1 }}, {{ order.customer.2 }}</td>
+					{% endif %}
+					
+					<td>{{ order.sum }}</td><td>{{ order.comment }}</td><td>{{ order.timestamp }}</td>
+					
+				</tr>
+				{% endfor %}
+				{% else %}
+				<p>You have no orders yet!</p>
+				{% endif %}
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	  
+
+{% endblock %}
