@@ -1,0 +1,54 @@
+{% extends "shop/layout.html" %}
+
+{% block body %}
+    
+	<div id="cart_div">
+		<div id="cart_div_inner">
+			<div id="cart_back">
+				<div class="border-top">
+					<table id="cart_list">
+					</table>
+					<div class="total_sum"></div>
+					<a href="{% url 'index' %}" class="back_shopping_button btn btn-primary"><i class="fas fa-arrow-left"></i> Back To Shopping</a>
+					<button class="order_button btn btn-primary">Create Order</button>
+				</div>
+				<form id="user_cart_form" method="post">
+				{% csrf_token %}
+					<h3>Customer Info</h3>
+					<div class="form-group">
+						<label for="phone">Your phone number (required):</label>
+						{% if user.is_authenticated %}
+							<input class="form-control" type="tel" name="phone" id="phone" value="{{ user.phone }}" required>
+						{% else %}	
+							<input class="form-control" type="tel" name="phone" id="phone" placeholder="Your Phone Number (required)" required>						
+						{% endif %}		
+					</div>
+					<div class="form-group">
+						<label for="firstname">Your name:</label>
+						{% if user.is_authenticated %}
+							<input class="form-control" autofocus type="text" name="firstname" id="firstname" value="{{ user.first_name }}">
+						{% else %}	
+							<input class="form-control" autofocus type="text" name="firstname" id="firstname" placeholder="Your Name">
+						{% endif %}		
+					</div>
+					<div class="form-group">
+						<label for="email">Your email:</label>
+						{% if user.is_authenticated %}
+							<input class="form-control" type="email" name="email" id="email" value="{{ user.email }}">
+						{% else %}	
+							<input class="form-control" type="email" name="email" id="email" placeholder="Your Email Address">
+						{% endif %}		
+					</div>
+					<div class="form-group">
+						<label for="comment">Your comment:</label>
+						<textarea class="form-control" name="comment" id="comment" placeholder="Your Comment"></textarea>
+					</div>	
+					<input class="btn btn-primary" type="submit" value="Sent Order">
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	  
+
+{% endblock %}
