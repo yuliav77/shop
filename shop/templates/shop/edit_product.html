@@ -1,0 +1,30 @@
+{% extends "shop/layout.html" %}
+
+{% block body %}
+    
+	<div class="body_inner">
+		{% if user.is_staff %}
+		<div id="admin_div">
+		
+			<div id="edit_product_div">
+				<form id="edit_product" method="post" enctype="multipart/form-data">{% csrf_token %}
+					
+					<h3>Edit Product</h3>
+					
+					{% if message %}
+						<div>{{ message }}</div>
+					{% endif %}
+
+					{{ edit_form.as_p }}
+
+					<button type="submit" class="save btn btn-primary">Save</button>
+					<a class="btn btn-primary" href="{% url 'admin_products' %}">Cancel</a>
+				</form>
+			</div>	
+		</div>
+		{% else %}
+			Forbidden! You are not staff!
+		{% endif %}	  
+	</div>
+
+{% endblock %}
